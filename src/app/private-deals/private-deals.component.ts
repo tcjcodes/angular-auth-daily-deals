@@ -5,23 +5,23 @@ import { AuthService } from '../auth.service';
 import { DealService } from '../deal.service';
 
 @Component({
-  selector: 'app-public-deals',
+  selector: 'app-private-deals',
   // We'll use an external file for both the CSS styles and HTML view
-  templateUrl: 'public-deals.component.html',
-  styleUrls: ['public-deals.component.css']
+  templateUrl: 'private-deals.component.html',
+  styleUrls: ['private-deals.component.css']
 })
-export class PublicDealsComponent implements OnInit {
-  publicDeals: Deal[];
+export class PrivateDealsComponent implements OnInit {
+  privateDeals: Deal[];
 
   // Note: We haven't implemented the Deal or Auth Services yet.
   constructor(private dealService: DealService,
               public authService: AuthService) {
   }
 
-  // When this component is loaded, we'll call the dealService and get our public deals.
+  // When this component is loaded, we'll call the dealService and get our private deals.
   ngOnInit(): void {
-    this.dealService.getPublicDeals()
-      .then(deals => this.publicDeals = deals);
+    this.dealService.getPrivateDeals()
+      .then(deals => this.privateDeals = deals);
   }
 
   purchase(item) {
